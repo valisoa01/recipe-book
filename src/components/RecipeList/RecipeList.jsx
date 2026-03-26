@@ -2,8 +2,9 @@ import RecipeCard from '../RecipeCard/RecipeCard.jsx'
 import styles from './RecipeList.module.css'
 import { useState } from 'react'
 
- export default function RecipeList({ recipes, onSelect }) {
+ export default function RecipeList({ recipes, onSelect, favory }) {
   const [selectedRecipe, setSelectedRecipe] = useState(null);
+  const [favory,setFavory] = useState(null);
   const [query, setQuery] = useState('')
 
   const filteredRecipes = recipes.filter((r) =>
@@ -39,6 +40,11 @@ import { useState } from 'react'
       <p>Category: {selectedRecipe.category}</p>
       <p>Minutes: {selectedRecipe.duration}</p>
     </div>
+  </div>
+)}
+{setFavory && (
+  <div className={styles.list}>
+    <h2>{setFavory.name}</h2>
   </div>
 )}
       </div>

@@ -27,14 +27,14 @@
   padding: 8px 15px;
   border: none;
   border-radius: 10px;
-  background: #ff5c5c;
+  background: #e27a03;
   color: white;
   cursor: pointer;
   transition: 0.2s;
 }
 
 .details button:hover {
-  background: #e04848;
+  background: #f1a603;
 }
 
 .overlay {
