@@ -1,8 +1,9 @@
 import RecipeCard from '../RecipeCard/RecipeCard.jsx'
 import styles from './RecipeList.module.css'
 import { useState } from 'react'
- export default function RecipeList({ recipes }) {
-   const [selectedRecipe, setSelectedRecipe] = useState(null);
+
+ export default function RecipeList({ recipes, onSelect }) {
+  const [selectedRecipe, setSelectedRecipe] = useState(null);
   const [query, setQuery] = useState('')
 
   const filteredRecipes = recipes.filter((r) =>
@@ -32,9 +33,9 @@ import { useState } from 'react'
     </ul>
     {selectedRecipe && (
       <div className= {styles.details}>
-        <button onClick={() => selectedRecipe(null)}>Close</button>
-        <h2>{selectedRecipe.name}</h2>
-        <p>{selectedRecipe.description}</p>
+      <button type='button' className={styles.pin} onClick={(e) => setSelectedRecipe(null)}>Close</button>        
+      <h2>{selectedRecipe.name}</h2>
+      <p>{selectedRecipe.description}</p>
       </div>
     )}
       </div>
