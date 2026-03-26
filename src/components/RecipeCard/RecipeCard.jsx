@@ -1,11 +1,11 @@
 import { useState } from 'react'
 import styles from './RecipeCard.module.css'
 
-export default function RecipeCard({ recipe }) {
+export default function RecipeCard({ recipe }) {  
   const [pinned, setPinned] = useState(false)
 
   return (
-    <article className={`${styles.card} ${pinned ? styles.pinned : ''}`}>
+    <article className={`${styles.card} ${pinned ? styles.pinned : ''}`}  onClick={handleClick}>
       <img
         className={styles.image}
         src={recipe.image}

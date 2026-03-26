@@ -2,6 +2,7 @@ import RecipeCard from '../RecipeCard/RecipeCard.jsx'
 import styles from './RecipeList.module.css'
 import { useState } from 'react'
  export default function RecipeList({ recipes }) {
+   const [selectedRecipe, setSelectedRecipe] = useState(null);
   const [query, setQuery] = useState('')
 
   const filteredRecipes = recipes.filter((r) =>
@@ -26,11 +27,16 @@ import { useState } from 'react'
         Try it: pin a card, then reverse order and watch whether “pinned” still
         matches the recipe you originally pinned.
         */
-       <li key={index} className={styles.item}>
-          <RecipeCard recipe={recipe} />
-        </li>
+      <RecipeCard key={recipe.id} recipe={recipe} onSelect = {setSelectedRecipe} />
       ))}
     </ul>
+    {selectedRecipe && (
+      <div className= {styles.details}>
+        <button onClick={() => selectedRecipe(null)}>Close</button>
+        <h2>{selectedRecipe.name}</h2>
+        <p>{selectedRecipe.description}</p>
+      </div>
+    )}
       </div>
    )
 }
