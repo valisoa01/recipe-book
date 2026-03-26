@@ -32,12 +32,15 @@ import { useState } from 'react'
       ))}
     </ul>
     {selectedRecipe && (
-      <div className= {styles.details}>
-      <button type='button' className={styles.pin} onClick={(e) => setSelectedRecipe(null)}>Close</button>        
+  <div className={styles.overlay}>
+    <div className={styles.details}>
+      <button onClick={() => setSelectedRecipe(null)}>Close</button>
       <h2>{selectedRecipe.name}</h2>
-      <p>{selectedRecipe.description}</p>
-      </div>
-    )}
+      <p>Category: {selectedRecipe.category}</p>
+      <p>Minutes: {selectedRecipe.duration}</p>
+    </div>
+  </div>
+)}
       </div>
    )
 }
